@@ -1,9 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-	let dotenv = require('dotenv').config();
-	let dotenvExpand = require('dotenv-expand');
-	dotenvExpand.expand(dotenv);
-}
-
 // exporting packages
 const path = require('path');
 const passport = require('passport');
@@ -40,19 +34,18 @@ app.use(passport.session());
 app.use(methodOverride('_method'));
 
 // connecting to mongodb & listenning for requests
-const PORT = 8000;
+const dbURI =
+	'mongodb+srv://user1:D9A6930NMN5VgT2i@online-store.5zniayu.mongodb.net/?retryWrites=true&w=majority';
+const PORT = 3000;
 mongoose
-	.connect(process.env.dbURI || PORT, {
+	.connect(dbURI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		family: 4,
 	})
 	.then(() =>
-		app.listen(process.env.dbURI || PORT, () => {
-			console.log(
-				'Diploma project has been started on port ' + process.env.dbURI ||
-					PORT + '.'
-			);
+		app.listen(PORT, () => {
+			console.log(`Diploma project has been started on port ${PORT}.`);
 		})
 	)
 	.catch((error) => console.log(error));
