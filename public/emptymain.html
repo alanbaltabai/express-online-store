@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Мебельщик | Главная</title>
+
+
+  <link rel="stylesheet" href="style.css" /> <!-- looks inside "public folder" -->
+
+  <link
+    rel="shortcut icon"
+    href="/Images/Icons/favicon.svg"
+    type="image/x-icon"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  
+
+  <div class="wrapper">
+    <div class="header">
+      <div class="searchbar">
+        <img class="search-icon" src="Images/Icons/search.png" alt="" />
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Я ищу..."
+          autocomplete="off"
+          data-search
+        />
+      </div>
+    
+      <a href="/" class="logo-link">
+        <div class="logo">
+          <img src="Images/Icons/logo.png" alt="" />
+          <h1>МЕБЕЛЬЩИК</h1>
+        </div>
+      </a>
+    
+      <a href="/cart">
+        <img class="cart-icon" src="Images/Icons/bag.png" alt="" />
+      </a>
+    </div>
+
+    <div class="main-404">
+      <h1>Нет товаров.</h1>
+    </div>
+
+    <div class="footer">
+      <div class="lists-wrapper">
+        <ul class="footer-list footer-list1">
+          <li class="address">
+            <div>
+              <img src="Images/Icons/location.png" alt="" />
+            </div>
+            <span>Алматы, ул. Примерова 21</span>
+          </li>
+          <li class="contact">
+            <div>
+              <img src="Images/Icons/call.png" alt="" />
+            </div>
+            <span>8 707 707 70 77</span>
+          </li>
+          <li class="instagram">
+            <div>
+              <img src="Images/Icons/instagram.png" alt="" />
+            </div>
+            <span>mebelshik_almaty</span>
+          </li>
+        </ul>
+    
+        <ul class="footer-list footer-list2">
+          <li class="schedule">
+            <div>
+              <img src="Images/Icons/clock.png" alt="" />
+            </div>
+            <span>Пнд - Птн, 9:00 - 18:00</span>
+          </li>
+          <li class="break">
+            <div>
+              <img src="Images/Icons/coffee-cup-2.png" alt="" />
+            </div>
+            <span>13:00 - 14:00</span>
+          </li>
+          <li class="mail">
+            <div>
+              <img src="Images/Icons/mail.png" alt="" />
+            </div>
+            <span>help@mebelshik.kz</span>
+          </li>
+        </ul>
+      </div>
+      <!-- lists-wrapper -->
+    
+      <div class="copyright">
+        &copy; Мебельщик, <span id="year"></span>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>

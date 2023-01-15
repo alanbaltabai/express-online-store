@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+
+  
+  <body>
+    <div class="wrapper">
+      <div class="header">        
+        <a href="/" class="logo-link">
+          <div class="logo">
+            <img src="Images/Icons/logo.png" alt="" />
+            <h1>МЕБЕЛЬЩИК</h1>
+          </div>
+        </a>
+      </div>
+
+      <div class="main-admin-login">
+        <form class="admin-login-form" method="POST" action="/logadmin">
+          <div>
+            <% if(messages.error) { %>
+              <%= messages.error %> 
+              <% } %>
+          </div>
+          <div class="create-form-name-wrapper">
+            <label for="username">Логин:</label>
+            <div class="create-form-name-div">
+              <input type="text" id="username" name="username" autocomplete="off" required>
+            </div>
+          </div>
+
+          <div class="create-form-category-wrapper">
+            <label for="password">Пароль:</label>
+            <div class="create-form-category-div">
+              <input type="password" id="password" name="password" autocomplete="off" required>
+            </div>
+          </div>
+
+          <button class="create-button">Войти</button>
+        </form>
+      </div> <!-- main-admin-login -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

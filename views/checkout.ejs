@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+    <script src="main.js" defer></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <%- include("./partials/header.ejs") %> 
+
+      <div class="wrapper-checkout-page">
+        <form class="checkout-form" method="post" action="/checkout">
+          <div class="form-name-wrapper">
+            <label for="form-name" id="form-label-name" title>Имя:</label>
+            <div class="form-name-div ">
+              <input
+                type="text"
+                name="name"
+                id="form-name"
+                placeholder="Денис"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-telephone-wrapper">
+            <label for="form-telephone" id="form-label-telephone"
+              >Контактный телефон:</label
+            >
+            <div class="form-telephone-div ">
+              <input
+                type="tel"
+                name="telephone"
+                id="form-telephone"
+                placeholder="8 707 677 54 32"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-address-wrapper">
+            <label for="form-address" id="label-radio-address"
+              >Адрес доставки:</label
+            >
+            <div class="form-address-div ">
+              <input
+                type="text"
+                name="address"
+                id="form-address"
+                placeholder="ул. Примерова 12"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-mail-wrapper">
+            <label for="form-mail">Почта:</label>
+            <div class="form-address-div">
+              <input
+                type="text"
+                name="mail"
+                id="form-mail"
+                placeholder="dead_inside_2005@gmail.com"
+              />
+            </div>
+          </div>
+
+          <div class="form-radios-div">
+            <div class="div-radio-cash radio-checkout">
+              <input
+                type="radio"
+                name="payment"
+                id="radio-cash"
+                class="radio-input"
+                value="Оплата наличными"
+                required
+                checked
+              />
+              <span class="radio-circle"></span>
+              <label for="radio-cash" id="label-radio-cash"
+                >Оплата наличными</label
+              >
+            </div>
+
+            <div class="div-radio-card radio-checkout">
+              <input
+                type="radio"
+                name="payment"
+                id="radio-card"
+                class="radio-input"
+                value="Оплата картой"
+                required
+              />
+              <span class="radio-circle"></span>
+              <label for="radio-card" id="label-radio-card"
+                >Оплата картой</label
+              >
+            </div>
+          </div>
+
+          <div class="form-comments-wrapper">
+            <label for="form-comments" class="form-label-textarea">Коментарий к заказу:</label>
+            <div class="form-comments-div">
+              <textarea
+                name="comment"
+                id="form-comment"
+                placeholder="Предупредить за 5 минут до приезда"
+              ></textarea>
+            </div>
+          </div>
+        </form>
+        <!-- wrapper checkout page -->
+
+        <div class="check-checkout">
+          <div class="wrapper-check-checkout">
+            <div class="wrapper-sum">
+              <span>Сумма</span>
+              <% if (items.length !== 0) { %> 
+                <span class="sum"><%= checks[checks.length - 1].sumValue %>тг</span>
+              <% } else { %>
+                <span class="sum"><%= 0 %>тг</span>
+              <% } %>
+            </div>
+
+            <div class="wrapper-delivery">
+
+              <span>Доставка</span>
+              <% if (items.length !== 0) { %> 
+                <span class="delivery-price"><%= 1000 %>тг</span>
+              <% } else { %>
+                <span class="delivery-price"><%= 0 %>тг</span>
+              <% } %> 
+            </div>
+
+            <hr class="hr-in-check" />
+
+            <div class="wrapper-total">
+              <span>Итого</span>
+              <% if (items.length !== 0) { %>
+                <span class="total"><%= checks[checks.length - 1].totalValue %>тг</span>
+              <% } else { %> 
+                <span class="total"><%= 0 %>тг</span>
+              <% } %>   
+            </div>
+
+            <button type="submit" class="checkout-button">ОПЛАТИТЬ</button> <!-- it is better to have a button inside of the form, if form was used -->
+          </div>
+          <!-- wrapper-check -->
+        </div>
+        <!-- check -->
+      </div>
+      <!-- wrapper-cart-page -->
+
+      <div class="footer">
+        <%- include("./partials/footer.ejs") %>
+      </div>
+      <!-- footer -->
+    </div>
+    <!-- wrapper -->
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head.ejs") %>
+    <script src="/order.js" defer></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <a href="/madmin">
+          <button class="delete-button-cart go-back-madmin-button">Страница администратора</button>
+        </a>
+
+        <a href="/" class="logo-link">
+          <div class="logo">
+            <img src="/Images/Icons/logo.png"/>
+            <h1>МЕБЕЛЬЩИК</h1>
+          </div>
+        </a>
+
+        <button class="delete-button-order" data-delete="<%= order._id %>">Удалить заказ</button>
+    
+      </div> <!-- header -->
+
+      <div class="main-order">
+        <img src="/images/icons/user.png" class="user-img">
+        <p class=""><%= order.createdAt %> </p>
+        
+        <div class="single-order-wrapper">
+          <div>
+            <p>Имя</p>
+            <p><%= order.name %> </p>
+          </div>
+  
+          <div>
+            <p>Телефон</p>
+            <p><%= order.telephone %> </p>
+          </div>
+  
+          <div>
+            <p>Адрес</p>
+            <p><%= order.address %> </p>
+          </div>
+          
+          <% if (order.mail) { %> 
+          <div>
+            <p>Почта</p>
+            <p><%= order.mail %> </p>
+          </div>
+          <% } %> 
+
+          <div>
+            <p>Оплата</p>
+            <% if(order.payment === "Оплата наличными") {%> 
+              <p>Наличными</p>
+            <% } else { %>
+              <p>Картой (Проверить в Stripe)</p>
+            <% } %>  
+          </div>
+  
+          <% if (order.comment) { %> 
+          <div>
+            <p>Комментарий к заказу</p>
+            <p><%= order.comment %> </p>
+          </div>
+          <% } %> 
+
+          <div>
+            <p>Заказано</p>
+            <p>
+            <% for (let i = 0; i < order.check.productTitlesArray.length; i++) {%> 
+              <%= order.check.productTitlesArray[i] %> x <%= order.check.productQuantitiesArray[i] %>  <br> 
+            <% } %> 
+            </p>
+          </div>
+
+          <div>
+            <p>Сумма с доставкой</p>
+            <p><%= order.check.totalValue%>тг </p>
+          </div>
+        </div> <!-- single-order-wrapper -->
+        
+      </div> <!-- main-order -->
+      
+    </div>  <!-- wrapper -->
+  </body>
+</html>

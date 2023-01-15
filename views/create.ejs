@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+
+  
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <a href="/" class="logo-link">
+          <div class="logo">
+            <img src="Images/Icons/logo.png" alt="" />
+            <h1>МЕБЕЛЬЩИК</h1>
+          </div>
+        </a>
+      </div>
+
+      <div class="main-create">
+        <h1 class="header-create">Добавить новый продукт</h1>
+        <form class="create-form" method="POST" action="/" enctype="multipart/form-data">
+
+          <div class="create-form-name-wrapper">
+            <label for="create-form-product-title">Название продукта:</label>
+            <div class="create-form-name-div">
+              <input type="text" id="create-form-product-title" name="title" autocomplete="off" required>
+            </div>
+          </div>
+
+          <div class="create-form-category-wrapper">
+            <label for="create-form-product-category">Категория:</label>
+            <div class="create-form-category-div">
+              <input type="text" id="create-form-product-category" name="category" autocomplete="off" required>
+            </div>
+          </div>
+
+          <div class="create-form-price-wrapper">
+            <label for="create-form-product-price">Цена:</label>
+            <div class="create-form-price-div">
+              <input type="number" id="create-form-product-price" name="price" placeholder="0" min="0" required>
+            </div>
+          </div>
+
+          <div class="create-form-images-wrapper">
+            <label for="imagesUpload">Изображения:</label>
+            <div class="create-form-images-div">
+              <input type="file" id="imagesUpload" class="input-images-upload" name="images" multiple required> 
+            </div>
+          </div>
+          
+          <div class = "create-button-and-link">
+            <button class="create-button">Добавить</button>
+            <a href="/madmin">
+              Страница администратора
+            </a>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+    <!-- wrapper -->
+  </body>
+</html>

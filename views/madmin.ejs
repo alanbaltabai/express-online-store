@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+
+  
+  <body>
+    <div class="wrapper">
+      <% if (orders.length === 0) { %>
+        <div class="header">        
+          <a href="/" class="logo-link">
+            <div class="logo">
+              <img src="Images/Icons/logo.png" alt="" />
+              <h1>МЕБЕЛЬЩИК</h1>
+            </div>
+          </a>
+        </div> <!-- header -->
+
+        <div class="main-admin-empty">
+        
+          <div class="div1">
+            <div class="form-admin-logout">
+              <h1>Добавить продукты</h1>
+              <a href="/create">
+                <button class="create-button">Добавить</button>
+              </a>
+            </div>
+          </div>
+          
+          <div class="plane-breaker">BR</div>
+          
+          <div class="div2">
+            <form action="/madmin?_method=DELETE" method="POST" class="form-admin-logout">
+              <h1>Выйти с режима администратора</h1>
+              <button class="create-button">Выйти</button>
+            </form>
+          </div>
+
+        </div> <!-- main-admin-empty -->
+      <% } else {%>
+        <div class="header">        
+          <a href="/create" class="link-to-create">Добавить товар</a>
+
+          <a href="/" class="logo-link">
+            <div class="logo">
+              <img src="Images/Icons/logo.png" alt="" />
+              <h1>МЕБЕЛЬЩИК</h1>
+            </div>
+          </a>
+
+          <form action="/madmin?_method=DELETE" method="POST" class="form-admin-logout">
+            <button class="link-button">Выйти</button>
+          </form>
+        </div> <!-- header -->
+
+        <div class="main-admin-nonempty">
+          <% orders.forEach(order => { %>
+            <a href="orders/<%= order._id %>" class="order-link">
+              <div class="order-wrapper">
+                <div class="order-p">
+                  <p>Новый заказ!</p>
+                  <p class="second-p"><%= order.createdAt %> </p>
+                </div>
+                <img class="order-image" src="/Images/Icons/file-form.png"/>
+              </div>
+            </a>
+          <% }); %>
+        </div> <!-- main-admin-nonempty -->
+      <% } %> 
+      
+    </div> <!-- wrapper -->
+  </body>
+</html>

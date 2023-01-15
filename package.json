@@ -1,0 +1,29 @@
+{
+	"name": "diploma-project-bean-counters",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.20.0",
+		"ejs": "^3.0.2",
+		"express": "^4.17.3",
+		"express-flash": "^0.0.2",
+		"express-session": "^1.17.2",
+		"method-override": "^3.0.0",
+		"mongoose": "^6.2.10",
+		"multer": "^1.4.4",
+		"passport": "^0.5.2",
+		"passport-local": "^1.0.0",
+		"serve-favicon": "^2.5.0",
+		"stripe": "^8.220.0"
+	},
+	"devDependencies": {
+		"dotenv": "^16.0.0",
+		"dotenv-expand": "^10.0.0"
+	}
+}

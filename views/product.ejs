@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+    <script src="main.js" defer></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <%- include("./partials/header.ejs") %> 
+      
+      <div class="wrapper-product-page">
+        <div class="images-section">
+          <div class="small-images-section">
+            <% for (let i = 0; i < product.images.length; i++) { %>
+              <img class="small-image" src="uploads/<%= product.images[i] %>"/> 
+            <% } %> 
+          </div>
+          
+          <div class="big-image-section">
+            <img
+              class="big-image"
+              src="uploads/<%= product.images[0] %>"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- images-section -->
+
+        <div class="description-section">
+          <h1 class="title">
+            <%= product.title %> 
+          </h1>
+          <p class="price"><%= product.price %>тг</p>
+          <% if(viewProductDeleteBtn) {%>
+            <div class="delete-button-product-wrapper">
+              <a class="delete-product" data-delete="<%= product.title %>">Удалить товар</a>
+            </div>
+          <% } %>  
+          
+          <% let found = false; %> 
+          <% for (let i = 0; i < items.length; i++) { %>
+            <% if(items[i].title === product.title) {%> 
+              <% found = true; %> 
+              <div class="in-cart-message">Продукт в корзине</div>
+              <% break; %>
+            <% } %>  
+          <% } %>  
+          <% if (found !== true) { %>   
+            <button class="add-cart-button">Добавить в корзину</button>
+          <% } %> 
+          
+          
+          <button class="buy-button">Купить</button>
+          
+        </div> <!-- description-section -->
+        
+      </div> <!-- wrapper-product-page -->
+    
+      <%- include("./partials/footer.ejs") %>
+    </div> <!-- wrapper -->
+  </body>
+</html>
