@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-	require('dotenv').config();
-}
-
 // exporting packages
 const path = require('path');
 const passport = require('passport');
@@ -40,9 +36,12 @@ app.use(methodOverride('_method'));
 app.use(compression());
 
 // connecting to mongodb & listenning for requests
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
+const dbURI =
+	'mongodb+srv://user1:D9A6930NMN5VgT2i@online-store.5zniayu.mongodb.net/?retryWrites=true&w=majority';
+
 mongoose
-	.connect(process.env.dbURI, {
+	.connect(dbURI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		family: 4,
