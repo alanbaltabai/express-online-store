@@ -1,15 +1,20 @@
 {
-	"name": "diploma-project-bean-counters",
+	"name": "express-online-store",
 	"version": "1.0.0",
 	"description": "",
-	"main": "server.js",
+	"main": "app.js",
+	"engines": {
+		"node": ">=18"
+	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node app"
 	},
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
 		"body-parser": "^1.20.0",
+		"compression": "^1.7.4",
 		"ejs": "^3.0.2",
 		"express": "^4.17.3",
 		"express-flash": "^0.0.2",

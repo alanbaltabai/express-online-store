@@ -13,6 +13,7 @@ const favicon = require('serve-favicon');
 const flash = require('express-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
+const compression = require('compression');
 
 // returning an express object
 const app = express(); // returns object
@@ -36,6 +37,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
+app.use(compression());
 
 // connecting to mongodb & listenning for requests
 const PORT = process.env.PORT || 3000;
