@@ -27,12 +27,10 @@ The online-store created with MVC architecture, user/admin roles, authentication
 
 ## Setup
 
-To run this project, install it locally using npm:
+To run this project (after downloading and installing the packages):
 
 ```
-$ git clone https://github.com/alanbaltabay/express-online-store.git
-$ cd express-online-store
-$ npm install && npm start
+$ npm start
 ```
 
 ## Overview
