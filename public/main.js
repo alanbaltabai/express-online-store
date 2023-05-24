@@ -46,6 +46,7 @@ function updateCheck() {
 			".product-in-cart"
 		); /* the number of product containers in cart */
 	let sum = 0;
+	
 	for (
 		let i = 0, cartProductContainersLength = cartProductContainers.length;
 		i < cartProductContainersLength;
@@ -59,6 +60,7 @@ function updateCheck() {
 		let quantity = cartProductContainers[i].querySelector(".count").value;
 		sum = sum + price * quantity;
 	}
+	
 	sumCheck.innerText = sum + "тг";
 	totalCheck.innerText = sum + 1000 + "тг";
 }
@@ -108,18 +110,17 @@ for (
 // Searchbar
 searchInput.addEventListener("keyup", (e) => {
 	let typedWords = e.target.value.toLowerCase();
+	
 	for (
 		let i = 0, productContentsLength = productContents.length;
 		i < productContentsLength;
 		i++
 	) {
 		let productContent = productContents[i].textContent.toLowerCase();
+		
 		// if strings does not match indexOf returns -1
-		if (productContent.indexOf(typedWords) != -1) {
-			productLinks[i].style.display = "block";
-		} else {
-			productLinks[i].style.display = "none";
-		}
+		if (productContent.indexOf(typedWords) != -1) productLinks[i].style.display = "block";
+		else productLinks[i].style.display = "none";
 	}
 });
 
@@ -145,6 +146,7 @@ for (let i = 0; i < addCartBtn.length; i++) {
 		let productTitleValue = productTitle.innerText;
 		let productPriceValue = productPrice.innerText.replace("тг", "");
 		let bigImageSrc = bigImage.src.replace("http://localhost:3000/", "");
+		
 		fetch("/cart", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
@@ -254,6 +256,7 @@ for (let i = 0; i < confirmBtn.length; i++) {
 	confirmBtn[i].addEventListener("click", (event) => {
 		let productTitlesArray = [];
 		let productQuantitiesArray = [];
+		
 		for (let i = 0; i < productsContainerShip.children.length; i++) {
 			productTitlesArray.push(
 				productsContainerShip.children[i].children[1].children[0].children[0]
@@ -299,9 +302,7 @@ for (let i = 0; i < checkoutBtn.length; i++) {
 		let formMailValue = formMail.value;
 		let formPaymentValue;
 		formPayment.forEach((radio) => {
-			if (radio.checked) {
-				formPaymentValue = radio.value;
-			}
+			if (radio.checked) formPaymentValue = radio.value;
 		});
 		let formTextareaValue = formTextarea.value;
 		let hour = date.getHours(); // returns the hour (0 to 23) of a date.
@@ -309,22 +310,14 @@ for (let i = 0; i < checkoutBtn.length; i++) {
 		let day = date.getDate(); // returns the day of the month (1 to 31) of a date.
 		let month = date.getMonth() + 1; // returns the month (0 to 11) of a date.
 
-		if (hour < 10) {
-			hour = "0" + hour;
-		}
+		if (hour < 10) hhour = "0" + hour;
+		
+		if (minute < 10) minute = "0" + minute;
 
-		if (minute < 10) {
-			minute = "0" + minute;
-		}
+		if (day < 10) day = "0" + day;
 
-		if (day < 10) {
-			day = "0" + day;
-		}
-
-		if (month < 10) {
-			month = "0" + month;
-		}
-
+		if (month < 10) month = "0" + month;
+		
 		let createdAt = hour + ":" + minute + "/" + day + "-" + month + "-" + year;
 		const options = {
 			method: "POST",
