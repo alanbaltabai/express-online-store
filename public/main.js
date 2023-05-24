@@ -340,14 +340,6 @@ for (let i = 0; i < checkoutBtn.length; i++) {
 			}),
 		};
 
-		/* fetch("/madmin", options)
-			.then((response) => {
-				response.json().then(() => {});
-			})
-			.catch((error) => {
-				console.log(error);
-			}); */
-
 		if (formPaymentValue === "Оплата наличными") {
 			fetch("/madmin", options)
 				.then((response) => {
